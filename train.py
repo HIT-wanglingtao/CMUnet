@@ -197,14 +197,14 @@ def validate(config, val_loader, model, criterion):
 
 def main():
     config = vars(parse_args())
-    os.makedirs('models/%s' % config['name'], exist_ok=True)
+    os.makedirs('checkpoint/%s' % config['name'], exist_ok=True)
 
     print('-' * 20)
     for key in config:
         print('%s: %s' % (key, config[key]))
     print('-' * 20)
 
-    with open('models/%s/config.yml' % config['name'], 'w') as f:
+    with open('checkpoint/%s/config.yml' % config['name'], 'w') as f:
         yaml.dump(config, f)
 
     # define loss function (criterion)
@@ -323,13 +323,13 @@ def main():
         log['val_iou'].append(val_log['iou'])
         log['val_dice'].append(val_log['dice'])
 
-        pd.DataFrame(log).to_csv('models/%s/log.csv' %
+        pd.DataFrame(log).to_csv('checkpoint/%s/log.csv' %
                                  config['name'], index=False)
 
         trigger += 1
 
         if val_log['iou'] > best_iou:
-            torch.save(model.state_dict(), 'models/%s/model.pth' %
+            torch.save(model.state_dict(), 'checkpoint/%s/model.pth' %
                        config['name'])
             best_iou = val_log['iou']
             print("=> saved best model")
