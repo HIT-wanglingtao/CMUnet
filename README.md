@@ -37,7 +37,7 @@ Please store the BUSI dataset or your own dataset in the following directory arc
 ```
 ## training
 Create "checkpoint" directory under the CMUnet directory to save the pth file.
-
+Then, run the following command to train.
 ```
 nohup python train.py --dataset BUSI --name CMUnet  --img_ext .png --mask_ext .png --lr 0.0001 --epochs 400 --input_w 256 --input_h 256 --b 8 > log/CMUnet.log 2>&1 &
 ```
