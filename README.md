@@ -1,9 +1,9 @@
 # CMUnet
 
-##introduction
+## introduction
 CMUnet is a new Unet model based on depth separable convolution. CMUnet has achieved good segmentation results on BUSI dataset and thyroid dataset we collected. This project is its pytorch implementation.
 
-##datasets
+## datasets
 Please store the BUSI dataset or your own dataset in the following directory architecture. This implementation only supports single class segmentation.
 ```
 ├── CMUnet
@@ -35,8 +35,7 @@ Please store the BUSI dataset or your own dataset in the following directory arc
                 |   ├── 0b1761.png
                 |   ├── ...
 ```
-
-##training
+## training
 Create "checkpoint" directory under the CMUnet directory to save the pth file.
 
 ```
